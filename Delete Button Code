@@ -1,0 +1,22 @@
+private void DelBActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        // Delete Button Code
+        
+        //Get GradeTable model first
+        DefaultTableModel recordModel = (DefaultTableModel)GradeTable.getModel();
+        
+        //Delete row
+        if(GradeTable.getSelectedRowCount()==1) {
+            //Delete only if a row is selected
+            recordModel.removeRow(GradeTable.getSelectedRow());
+            JOptionPane.showMessageDialog(this, "Data Successfully Deleted!");
+        }else {
+            if(GradeTable.getRowCount()==0) {
+                //If table is empty display error message
+                JOptionPane.showMessageDialog(this, "Table is Empty.");
+            }else {
+                //If table is not empty but a row is not selected or multiple are selected, display error message
+                JOptionPane.showMessageDialog(this, "Please Select a Single Row to be deleted.");
+            }
+        }
+        
+    }     

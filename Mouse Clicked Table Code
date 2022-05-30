@@ -1,0 +1,30 @@
+private void GradeTableMouseClicked(java.awt.event.MouseEvent evt) {                                        
+        // Set Data to their textfield
+        
+        DefaultTableModel recordModel = (DefaultTableModel)GradeTable.getModel();
+        
+        //Set Data to textfield when row is selected
+        String StudentIDT, Q1T, Q2T, Q3T, MidT, FinalET, AssT, AttT, ExPntT, FinalGT;
+        
+        StudentIDT = recordModel.getValueAt(GradeTable.getSelectedRow(), 0).toString();
+        Q1T = recordModel.getValueAt(GradeTable.getSelectedRow(), 1).toString();
+        Q2T = recordModel.getValueAt(GradeTable.getSelectedRow(), 2).toString();
+        Q3T = recordModel.getValueAt(GradeTable.getSelectedRow(), 3).toString();
+        MidT = recordModel.getValueAt(GradeTable.getSelectedRow(), 4).toString();
+        FinalET = recordModel.getValueAt(GradeTable.getSelectedRow(), 5).toString();
+        AssT = recordModel.getValueAt(GradeTable.getSelectedRow(), 6).toString();
+        AttT = recordModel.getValueAt(GradeTable.getSelectedRow(), 7).toString();
+        ExPntT = recordModel.getValueAt(GradeTable.getSelectedRow(), 8).toString();
+        FinalGT = recordModel.getValueAt(GradeTable.getSelectedRow(), 9).toString();
+        
+        //Set to textfield
+        StudentIDTF.setText(StudentIDT);
+        Q1TF.setText(Q1T);
+        Q2TF.setText(Q2T);
+        Q3TF.setText(Q3T);
+        MidTF.setText(MidT);
+        FinalETF.setText(FinalET);
+        AssTF.setText(AssT);
+        AttTF.setText(AttT);
+        ExPntTF.setText(ExPntT);
+        FinalGradeTF.setText(FinalGT);

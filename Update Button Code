@@ -1,0 +1,48 @@
+private void UpdBActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        // Update Button Code
+        
+        //Get table model
+        DefaultTableModel recordModel = (DefaultTableModel)GradeTable.getModel();
+        
+        if(GradeTable.getSelectedRowCount()==1){
+            //Update only if single row is selected
+            
+            String StudentIDU, Q1U, Q2U, Q3U, MidU, FinalEU, AssU, AttU, ExPntU, FinalGradeU;
+            
+            StudentIDU = StudentIDTF.getText();
+            Q1U = Q1TF.getText();
+            Q2U = Q2TF.getText();
+            Q3U = Q3TF.getText();
+            MidU = MidTF.getText();
+            FinalEU = FinalETF.getText();
+            AssU = AssTF.getText();
+            AttU = AttTF.getText();
+            ExPntU = ExPntTF.getText();
+            FinalGradeU = FinalGradeTF.getText();
+            
+            //Set updated value
+            recordModel.setValueAt(StudentIDU, GradeTable.getSelectedRow(), 0);
+            recordModel.setValueAt(Q1U, GradeTable.getSelectedRow(), 1);
+            recordModel.setValueAt(Q2U, GradeTable.getSelectedRow(), 2);
+            recordModel.setValueAt(Q3U, GradeTable.getSelectedRow(), 3);
+            recordModel.setValueAt(MidU, GradeTable.getSelectedRow(), 4);
+            recordModel.setValueAt(FinalEU, GradeTable.getSelectedRow(), 5);
+            recordModel.setValueAt(AssU, GradeTable.getSelectedRow(), 6);
+            recordModel.setValueAt(AttU, GradeTable.getSelectedRow(), 7);
+            recordModel.setValueAt(ExPntU, GradeTable.getSelectedRow(), 8);
+            recordModel.setValueAt(FinalGradeU, GradeTable.getSelectedRow(), 9);
+            
+            //Update Message display
+            JOptionPane.showMessageDialog(this, "Data Updated Successfully!");
+            
+        }else {
+            //If table is empty
+            if(GradeTable.getRowCount()==0){
+                JOptionPane.showMessageDialog(this, "Table is Empty.");
+            }else {
+                //If multiple or no rows are selected
+                JOptionPane.showMessageDialog(this, "Please Select a Single Row to be updated.");
+            }
+        }
+        
+    }

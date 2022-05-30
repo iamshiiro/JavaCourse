@@ -1,0 +1,29 @@
+private void SaveBActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // Save button Code
+        
+        if(GradeTable.getRowCount()==0) {
+                //If table is empty display error message
+                JOptionPane.showMessageDialog(this, "Table is Empty.");
+        }else {
+            //Set path to destination file
+            String filePath = "/Users/carlosv/NetBeansProjects/JavaProject/Data.txt/";
+            File file = new File(filePath);
+            try {
+                FileWriter fw = new FileWriter(file);
+                BufferedWriter bw = new BufferedWriter(fw);
+            
+                for(int i = 0; i < GradeTable.getRowCount(); i++) {
+                    for(int j = 0; j < GradeTable.getColumnCount(); j++) {
+                        bw.write(GradeTable.getValueAt(i, j).toString()+" ");
+                    }
+                    bw.newLine();
+                }
+                bw.close();
+                fw.close();
+                JOptionPane.showMessageDialog(this, "Data Saved Successfully.");
+            
+            } catch (IOException ex) {
+                Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+        }
+    }  

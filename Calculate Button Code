@@ -1,0 +1,79 @@
+private void CalculateBActionPerformed(java.awt.event.ActionEvent evt) {                                           
+        // Calculates grades
+        
+        if (Q1TF.getText().equals("")||Q2TF.getText().equals("")||Q3TF.getText().equals("")||MidTF.getText().equals("")||FinalETF.getText().equals("")||AssTF.getText().equals("")||AttTF.getText().equals("")||ExPntTF.getText().equals("")) {
+            //Show error message of data missing
+            JOptionPane.showMessageDialog(this, "Please Enter All Data!");
+        }else {
+            //Create variables for the textfields
+            String StudentID, Q1S, Q2S, Q3S, MidS, FinalES, AssS, AttS, ExtraPS, Q1P, Q2P, Q3P, MidP, FinalEP, AssP, AttP, FinalGradeT;
+        
+        
+            //Assign the textfield input in the variables
+            StudentID = StudentIDTF.getText();
+            Q1S = Q1TF.getText();
+            Q2S = Q2TF.getText();
+            Q3S = Q3TF.getText();
+            MidS = MidTF.getText();
+            FinalES = FinalETF.getText();
+            AssS = AssTF.getText();
+            AttS = AttTF.getText();
+            ExtraPS = ExPntTF.getText();
+        
+            //Convert string to double
+            double Quiz1 = Double.parseDouble(Q1S);
+            double Quiz2 = Double.parseDouble(Q2S);
+            double Quiz3 = Double.parseDouble(Q3S);
+            double Midterm = Double.parseDouble(MidS);
+            double FinalExam = Double.parseDouble(FinalES);
+            double Assignments = Double.parseDouble(AssS);
+            double Attendance = Double.parseDouble(AttS);
+            double ExtraP = Double.parseDouble(ExtraPS);
+        
+        
+            //Assign the textfield input in the variables
+            Q1P = Q1PTF.getText();
+            Q2P = Q2PTF.getText();
+            Q3P = Q3PTF.getText();
+            MidP = MidPTF.getText();
+            FinalEP = FinalEPTF.getText();
+            AssP = AssPTF.getText();
+            AttP = AttPTF.getText();
+        
+            //Convert string to double
+            double Quiz1DP = Double.parseDouble(Q1P);
+            double Quiz2DP = Double.parseDouble(Q2P);
+            double Quiz3DP = Double.parseDouble(Q3P);
+            double MidtermDP = Double.parseDouble(MidP);
+            double FinalExamDP = Double.parseDouble(FinalEP);
+            double AssignmentsDP = Double.parseDouble(AssP);
+            double AttendanceDP = Double.parseDouble(AttP);
+        
+        
+            double Quiz1Score, Quiz2Score, Quiz3Score, MidScore, FinalEScore, AssScore, AttScore;
+            
+            //Calculate individual scores
+            Quiz1Score = Quiz1 * (Quiz1DP / 100);
+            Quiz2Score = Quiz2 * (Quiz2DP / 100);
+            Quiz3Score = Quiz3 * (Quiz3DP / 100);
+            MidScore = Midterm * (MidtermDP / 100);
+            FinalEScore = FinalExam * (FinalExamDP / 100);
+            AssScore = Assignments * (AssignmentsDP / 100);
+            AttScore = Attendance * (AttendanceDP / 100);
+        
+   
+            //Calculate final grade
+            double FinalGradeScore = 0;
+            FinalGradeScore = (Quiz1Score + Quiz2Score + Quiz3Score + MidScore + FinalEScore + AssScore + AttScore + ExtraP);
+        
+            //Round double to two decimal places
+            double FormatFinalGradeScore = Math.round(FinalGradeScore*100.0)/100.0;
+            FinalGradeScore = FormatFinalGradeScore;
+        
+            //Convert double to string
+            FinalGradeT = Double.toString(FinalGradeScore);
+            //Display final grade in textfield
+            FinalGradeTF.setText(FinalGradeT);
+        }
+        
+    }    

@@ -1,0 +1,35 @@
+private void AddBActionPerformed(java.awt.event.ActionEvent evt) {                                     
+        // Add Button Code
+        
+        //If a textfield is empty, show error message
+        if (StudentIDTF.getText().equals("")||Q1TF.getText().equals("")||Q2TF.getText().equals("")||Q3TF.getText().equals("")||MidTF.getText().equals("")||FinalETF.getText().equals("")||AssTF.getText().equals("")||AttTF.getText().equals("")||ExPntTF.getText().equals("")||FinalGradeTF.getText().equals("")) {
+            //Show error message of data missing
+            JOptionPane.showMessageDialog(this, "Please Enter All Data!");
+        }else {
+            //If all data is entered, add to table
+            String data[] = {StudentIDTF.getText(), Q1TF.getText(), Q2TF.getText(), Q3TF.getText(), MidTF.getText(), FinalETF.getText(), AssTF.getText(), AttTF.getText(), ExPntTF.getText(), FinalGradeTF.getText()};
+            
+            //Create variable for GradeTable model
+            DefaultTableModel recordModel = (DefaultTableModel)GradeTable.getModel();
+            
+            //Add data to model
+            recordModel.addRow(data);
+            
+            //Show message of data entered correctly
+            //JOptionPane.showMessageDialog(this, "Added Data Successfully.");
+            
+            //Set textfields to add new data for next student
+            StudentIDTF.setText("");
+            Q1TF.setText("0");
+            Q2TF.setText("0");
+            Q3TF.setText("0");
+            MidTF.setText("0");
+            FinalETF.setText("0");
+            AssTF.setText("0");
+            AttTF.setText("0");
+            ExPntTF.setText("0");
+            FinalGradeTF.setText("");
+            
+        }
+        
+    }                                 

@@ -28,3 +28,4 @@ private void GradeTableMouseClicked(java.awt.event.MouseEvent evt) {
         AttTF.setText(AttT);
         ExPntTF.setText(ExPntT);
         FinalGradeTF.setText(FinalGT);
+}

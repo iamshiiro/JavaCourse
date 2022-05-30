@@ -1,0 +1,10 @@
+private void SearchTFKeyReleased(java.awt.event.KeyEvent evt) {                                     
+        // Search button Code
+        
+        DefaultTableModel recordModel = (DefaultTableModel)GradeTable.getModel();
+        
+        String Search = SearchTF.getText().toLowerCase();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(recordModel);
+        GradeTable.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(Search));
+    }   

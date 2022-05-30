@@ -1,0 +1,24 @@
+private void LoadBActionPerformed(java.awt.event.ActionEvent evt) {                                      
+        // Load Button Code
+        
+        String filePath = "/Users/carlosv/NetBeansProjects/JavaProject/Data.txt/";
+        File file = new File(filePath);
+        
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            
+            DefaultTableModel recordModel = (DefaultTableModel)GradeTable.getModel();
+            Object[] lines = br.lines().toArray();
+            
+            for(int i = 0; i < lines.length; i++) {
+                String[] row = lines[i].toString().split(" ");
+                recordModel.addRow(row);
+            }
+            JOptionPane.showMessageDialog(this, "Data Loaded Successfully.");
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }        
